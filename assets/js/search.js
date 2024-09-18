@@ -20,17 +20,27 @@ async function searchMusic() {
   } else {
     itunesData.results.forEach((results) => {
       const songElement = document.createElement("div");
-      //songElement.classList.add()add styling later
-      // songElement.getElementbyId("playlist-button").classList.add(fas fa-plus);
+      songElement.classList.add(
+        "p-4",
+        "flex",
+        "justify-between",
+        "bg-gray-300",
+        "rounded",
+        "items-center",
+        "mb-2"
+      );
+      // songElement
+      //   .getElementbyId("playlist-button")
+      //   .classList.add("fas fa-plus");
       songElement.innerHTML = `
-        <div class=""> 
-            <p class="">${results.trackName}</p> 
-            <p class="">${results.artistName}</p> 
+        <div class="text-left"> 
+            <p class="text-gray-800">${results.trackName}</p> 
+            <p class="text-sm text-gray-800">${results.artistName}</p> 
         </div>
-        <button id="addPlaylist" class="" style="" onclick='addToPlaylist(${JSON.stringify(
+        <button id="addPlaylist" class="bg-blue-500 rounded px-3 py-1 flex text-sm text-white hover:bg-blue-600" style="flex-shrink:0;width:100px;" onclick='addToPlaylist(${JSON.stringify(
           results
         )})'> 
-            <i class="fas fa-plus"></i> ---- add to playlist 
+            <i class="fas fa-plus text-gray-900 mt-3.5"></i> Add To Playlist 
         </button>
     
     `;
@@ -38,12 +48,46 @@ async function searchMusic() {
     });
   }
 }
+
 function addToPlaylist(song) {
-  const playlist = JSON.parse(localStorage.getItem("playlist")) || []; //
+  const playlist = JSON.parse(localStorage.getItem("playlist")) || [];
   playlist.push({
     trackName: song.trackName,
     artistName: song.artistName,
   });
   localStorage.setItem("playlist", JSON.stringify(playlist));
-  alert("song added to playlist!");
+
+  // Create the modal container
+  const modalContainer = document.createElement("div");
+  modalContainer.id = "modal"; // Set an ID for easy removal
+  modalContainer.className =
+    "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"; // Add styles for modal backdrop
+
+  // Create the modal content
+  modalContainer.innerHTML = `
+    <div class="bg-white p-4 rounded shadow-lg">
+      <!-- Modal Header -->
+      <div class="flex justify-between items-center">
+        <h2 class="text-lg font-semibold">Song Added To Playlist!</h2>
+        <button class="text-gray-500 hover:text-gray-800" onclick="closeModal()">✖</button>
+      </div>
+      <!-- Modal Content -->
+      <p>${song.trackName} was added to your playlist!</p>
+      <!-- Modal Footer -->
+      <div class="mt-4">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  `;
+
+  // Append the modal to the body
+  document.body.appendChild(modalContainer);
+}
+
+// Function to close the modal
+function closeModal() {
+  const modal = document.getElementById("modal");
+  if (modal) {
+    modal.remove(); // Remove the modal from the DOM
+  }
 }

@@ -10,15 +10,23 @@ function displayPlaylist() {
   }
   playlist.forEach((song, index) => {
     const songElement = document.createElement("div");
-    // songElement.classList.add('flex', 'items-center', 'justify-between', 'bg-gray-200', 'p-2', 'rounded', 'mb-2'); // add styling later
+    songElement.classList.add(
+      "p-4",
+      "flex",
+      "justify-between",
+      "bg-gray-300",
+      "rounded",
+      "items-center",
+      "mb-2"
+    ); // add styling later
 
     songElement.innerHTML = `
-        <div class=""> 
-            <p class="">${song.trackName}</p> 
-            <p class="">${song.artistName}</p> 
+        <div class="text-left"> 
+            <p class="text-gray-800">${song.trackName}</p> 
+            <p class="text-sm text-gray-800">${song.artistName}</p> 
         </div>
-        <button class="" onclick="removeFromPlaylist(${index})"> 
-            <i class="fas fa-minus"></i> remove 
+        <button class="bg-red-500 rounded p-1 flex items-center justify-center text-sm text-white hover:bg-red-600" style="flex-shrink:0;width:100px;" onclick="removeFromPlaylist(${index})"> 
+            <i class="flex fas text-gray-900"></i> Remove 
         </button>
     `;
     playlistContainer.appendChild(songElement);
