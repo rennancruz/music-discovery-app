@@ -24,7 +24,7 @@ function displayPlaylist() {
     const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(song.trackName)}+${encodeURIComponent(song.artistName)}`;
 
     songElement.innerHTML = `
-        <div class="text-left mb-4"> 
+        <div class="text-center mb-4"> 
             <p class="text-gray-800">${song.trackName}</p> 
             <p class="text-sm text-gray-800">${song.artistName}</p> 
         </div>
