@@ -11,7 +11,7 @@ async function searchMusic() {
   const itunesResponse = await fetch(
     `https://itunes.apple.com/search?term=${encodeURIComponent(
       searchInput
-    )}&entity=song&limit=100`
+    )}&entity=song&limit=25`
   );
   const itunesData = await itunesResponse.json();
   console.log(itunesData);
