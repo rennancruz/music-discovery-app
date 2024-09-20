@@ -4,56 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lyrics Finder</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-      <h1 class="text-3xl font-bold text-center mb-6">Lyrics Finder</h1>
-
-      <form id="lyricsForm" class="space-y-4">
+  <body class="bg-gray-800 flex items-center justify-center">
+    <!-- Main body with gradient background -->
+    <div class="max-w-lg w-full bg-gray-900 rounded-xl shadow-lg p-10 text-center neon-border">
+      <!-- Container for lyrics content with glowing borders -->
+      <h1 class="text-4xl font-extrabold text-white mb-8 tracking-wide">
+        Lyrics Finder
+      </h1>
+      <!-- Heading with glow effect -->
+      <form id="lyricsForm" class="space-y-6">
+        <!-- Artist input -->
         <div>
-          <label for="artist" class="block text-sm font-medium text-gray-700"
-            >Artist</label
-          >
+          <label for="artist" class="block text-lg font-medium text-gray-400">Artist</label>
           <input
             type="text"
             id="artist"
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            class="w-full px-5 py-4 rounded-lg bg-gray-800 text-white placeholder-gray-500 neon-input focus:ring-2 focus:ring-indigo-500"
             placeholder="Enter artist name"
             required
           />
         </div>
-
+        <!-- Song Title input -->
         <div>
-          <label for="title" class="block text-sm font-medium text-gray-700"
-            >Song Title</label
-          >
+          <label for="title" class="block text-lg font-medium text-gray-400">Song Title</label>
           <input
             type="text"
             id="title"
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            class="w-full px-5 py-4 rounded-lg bg-gray-800 text-white placeholder-gray-500 neon-input focus:ring-2 focus:ring-indigo-500"
             placeholder="Enter song title"
             required
           />
         </div>
-
+        <!-- Get Lyrics button with glowing effect -->
         <button
           type="submit"
-          class="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700"
+          class="w-full py-4 text-lg rounded-lg glow-on-hover hover:scale-105 transform transition-transform ease-out duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-60"
         >
           Get Lyrics
         </button>
       </form>
-
+      <!-- Lyrics output box with glowing effect -->
       <div
         id="lyrics"
-        class="mt-6 p-4 bg-gray-50 rounded-lg shadow-inner text-gray-800 whitespace-pre-line"
+        class="mt-8 p-6 bg-gray-800 rounded-lg neon-box shadow-inner text-white whitespace-pre-line text-sm"
       ></div>
+      <!-- Back to playlist button with glowing effect -->
+      <a
+        href="playlist.html"
+        class="w-full inline-block mt-6 py-4 bg-gradient-to-r from-blue-500 via-green-500 to-teal-500 text-white rounded-lg glow-on-hover hover:scale-105 transform transition-transform ease-out duration-200 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-60"
+      >
+        <i class="fas fa-arrow-left"></i> Back To Playlist
+      </a>
     </div>
-
     <script src="./assets/js/lyrics.js"></script>
   </body>
 </html>
