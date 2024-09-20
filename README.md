@@ -4,6 +4,8 @@
 
 The **Music Discovery Playlist Builder** is a web application designed for music enthusiasts to search for songs and artists, explore music details, and create personalized playlists. The app integrates with the iTunes API to fetch song data and allows users to add their favorite tracks to a playlist, manage the playlist by removing or clearing songs, and persist their selections across sessions using local storage. The application features a dark, modern, and responsive UI built with Tailwind CSS and Font Awesome.
 
+Please, visit our website [here](https://rennancruz.github.io/music-discovery-playlist-builder/).
+
 ## Technologies Used
 
 - **HTML5** - Structure of the web application.
