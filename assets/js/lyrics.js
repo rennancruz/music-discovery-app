@@ -22,8 +22,17 @@ document.getElementById("lyricsForm").addEventListener("submit", function (event
   lyricsDiv.textContent = "Fetching lyrics...";
 
   if (artist && title) {
-    fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
-      .then((response) => response.json())
+    // Create a timeout that rejects the promise after 3 seconds
+    const timeout = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Lyrics not found")), 2000)
+    );
+
+    // Fetch lyrics and race it against the timeout
+    Promise.race([
+      fetch(`https://api.lyrics.ovh/v1/${artist}/${title}`)
+        .then((response) => response.json()),
+      timeout
+    ])
       .then((data) => {
         if (data.lyrics) {
           lyricsDiv.textContent = data.lyrics;
@@ -33,7 +42,7 @@ document.getElementById("lyricsForm").addEventListener("submit", function (event
       })
       .catch((error) => {
         console.error("Error fetching lyrics:", error);
-        lyricsDiv.textContent = "Error fetching lyrics. Please try again later.";
+        lyricsDiv.textContent = "Lyrics cannot be found.";
       });
   } else {
     lyricsDiv.textContent = "Please enter both artist and song title.";
