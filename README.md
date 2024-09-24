@@ -1,4 +1,4 @@
-# Music Discovery Playlist Builder
+# Music Discovery App
 
 ## Description
 
