@@ -11,7 +11,7 @@ The Lyrics.ovh API provides access to song lyrics, allowing users to retrieve ly
 The application features a dark, modern, and responsive UI built with Tailwind CSS and Font Awesome.
 
 
-https://github.com/user-attachments/assets/97c59cfc-21c9-4d58-a922-2706a4df967e
+https://github.com/user-attachments/assets/f559aec8-2940-47b7-a6bd-78280ce50104
 
 
 Please, visit our website [here](https://rennancruz.github.io/music-discovery-app/).
